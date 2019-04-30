@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="vue.css" rel="stylesheet" />
 </head>
 <body>
     <div id="app">
@@ -17,6 +18,26 @@
         <pre>
             {{$data | json }}
         </pre>
+        <div class="data-binding">
+            <input type="text" v-bind:value="name"> 
+            <a v-bind:href="link">Link</a>
+            <!-- Вставка разметки -->
+            <div v-html="markup"></div>
+        </div>
+        <!-- Динамический лист вставить -->
+        <div class="dynamic-list">
+            <ul>
+                <!-- Пройдемся по елементам массива -->
+                <li v-for="person in people" v-bind:class="{'strike' : !person.stillAlive}">{{person.nameP}}</li>
+            </ul>
+        </div>
+        <!-- Events -->
+        <div class="events-click">
+            <h2>{{counter}}</h2>
+            <button v-on:click="counter++">+1</button>
+            <button v-on:click="substract">-1</button>
+            <button @dblclick="counter=0">Reset</button>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
