@@ -15,9 +15,9 @@
             <h3>{{greet()}}</h3>
             <h3>{{job}}</h3>
         </div>
-        <pre>
+        <!-- <pre>
             {{$data | json }}
-        </pre>
+        </pre> -->
         <div class="data-binding">
             <input type="text" v-bind:value="name"> 
             <a v-bind:href="link">Link</a>
@@ -38,7 +38,71 @@
             <button v-on:click="substract">-1</button>
             <button @dblclick="counter=0">Reset</button>
         </div>
+        <!-- Events keyboards -->
+        <div class="events-keyboard">
+            <label>Name: </label>
+            <!-- Добавим наш keycode из vue-model -->
+            <input type="text" @keyup.113="changeName">
+        </div>
+        <!-- Двусторонняя привязка данных (Two-Way Data Binding) -->
+        <div class="two-way-databinding">
+            <h2>{{nameTwoWay}}</h2>
+            <label>Name:</label>
+            <input type="text" v-model="nameTwoWay">
+            <br>
+            <label>Checkbox value: {{checked}}</label>
+            <!-- Привяжем через v-model -->
+            <input type="checkbox" v-model="checked">
+        </div>
+        <br>
+        <br>
+        <!-- Вычисляемые свойства (Computed Properties) -->
+        <div class="computed-properties">
+            <button @click="a++">Add to A</button>
+            <button @click="b++">Add to B</button>
+            <p>A- {{a}}</p>
+            <p>B- {{b}}</p>
+            <p>Age + A = {{addToA}}</p>
+            <p>Age + B = {{addToB}}</p>
+        </div>
+        <!-- Условный рендеринг (Conditionals) -->
+        <br>
+        <div class="conditionals">
+            <button @click="error = !error">Toggle Error</button>
+            <button @click="success = !success">Toggle Success</button>
+            <p v-if="error">Here you can see error message</p>
+            <p v-else="error">Default message</p>
+            <p v-show="success">Here you see sucess message</p>
+            <!-- v-show - регулируется свойством display:none ili display:block -->
+        </div>
+        
+
     </div>
+
+    <!-- Events modificators
+    .stop -  отменяет дальнейшее всплытие(аналог stopPropaganation)
+    .prevent - переход по ссылке, отправка формы(аналог preventDefault)
+    .capture - событие нацелено на внутренный елемент, отрабатывает после обработки этим елементом
+    .self - позволяет вызывать обработчик только после наступления события на этом элементе(на дочернем компоненте)
+    .once - только один раз вызвать
+    .passive -  @scroll.passive="onScroll" - не хотим предотвращать для события по умолчанию
+    можно обьеденять в цепочки - @click.prevent.self - предотвращает всех клики
+    но цепочка важна что за чем идет
+    form @submit.prevetn
+    -->
+    <!-- Events modificators keyboards 
+    @keyup - по любому нажатию на клавиатуре
+    @keyup.13 - событие сработает только если нажат enter
+    .enter
+    .tab
+    .delete
+    .esc
+    .space
+    .up
+    .down
+    .right
+    .left
+    -->
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="vue.js"></script>

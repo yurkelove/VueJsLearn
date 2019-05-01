@@ -1,0 +1,12 @@
+.vue-title{
+    font-size: 35px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.strike{
+    text-decoration: line-through;
+}
+li{
+    cursor:pointer;
+}

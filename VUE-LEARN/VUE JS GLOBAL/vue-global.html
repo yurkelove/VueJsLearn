@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Global</title>
+    <link href="vue-global-style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1 class="vue-title">Vue Global</h1>
+
+    <div id="app-one">
+       {{title}}
+       <br>
+       {{greet}}
+    </div>
+
+    <div id="app-two">
+        {{title}}
+        <br>
+        {{greet}}
+        <button @click="changeTitleOne">Change title one</button>
+    </div>
+    <br>
+    <!-- Component -->
+    <div id="app">
+        <comp></comp>
+    </div>
+    
+    <div id="app-refs">
+        <h2>{{titleRefs}}</h2>
+        <input type="text" ref="input">
+        <button @click="changeTitle">Submit</button>
+        <p ref="paragraph"></p>
+    </div>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="vue-global-js.js"></script>
+</body>
+</html>
